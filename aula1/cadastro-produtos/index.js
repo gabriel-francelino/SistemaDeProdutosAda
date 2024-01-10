@@ -44,9 +44,22 @@ app.put('/produtos/:id', (req, res) => {
 
   if (index == -1) {
     res.status(404).send('Produto não encontrado');
-  } else {
+  } else { // dica: evitar utilizar else quando possível
     produtos[index] = {id, ...produto_atualizado};
     res.status(200).send(produtos[index]);
+  }
+});
+
+app.delete('/produtos/:id', (req, res) => {
+  const { id } = req.params;
+
+  const index = produtos.findIndex(produto => produto.id === id);
+
+  if (index == -1) {
+    res.status(404).send('Produto não encontrado');
+  } else {
+    produtos.splice(index, 1);
+    res.status(204).send('Produto excluído com sucesso');
   }
 });
 
