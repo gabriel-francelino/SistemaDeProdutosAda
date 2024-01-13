@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 class ProdutosRepository {
   #produtos = [
     {
@@ -18,6 +20,14 @@ class ProdutosRepository {
 
   buscar(id) {
     return this.#produtos.find(item => item.id === id);
+  }
+
+  inserir(produto){
+    produto.id = uuid();
+
+    this.#produtos.push(produto);
+
+    return produto;
   }
 }
 

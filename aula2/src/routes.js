@@ -9,16 +9,7 @@ const produtos = [];
 
 routes.get('/produtos', produtosController.listar);
 routes.get('/produtos/:id', produtosController.buscar);
-
-// cadastro de produto
-routes.post('/produtos', (req, res) => {
-  const produto = req.body;
-  produto.id = uuid();
-
-  produtos.push(produto);
-
-  res.status(201).send(produto);
-});
+routes.post('/produtos', produtosController.cadastrar);
 
 // Edição de produto
 routes.put('/produtos/:id', (req, res) => {
