@@ -1,3 +1,4 @@
+import { AppError } from '../errors/AppError.js';
 import { produtosRepository } from '../repositories/ProdutosRepository.js';
 
 class EditarProdutoService {
@@ -5,7 +6,7 @@ class EditarProdutoService {
     const produtoExistente = produtosRepository.buscar(produto.id);
 
     if (!produtoExistente) {
-      return null;
+      throw new AppError('Produto não encontrado', 404);
     }
 
     const produtoEditado = produtosRepository.editar(produto);

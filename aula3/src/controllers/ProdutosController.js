@@ -6,9 +6,13 @@ import { excluirProdutoService } from '../services/ExcluirProdutoService.js';
 
 class ProdutosController {
   listar(req, res, next) {
-    const produtos = listarProdutosService.execute();
-    res.send(produtos);
-    next();
+    try {
+      const produtos = listarProdutosService.execute();
+      res.send(produtos);
+      next();
+    } catch (error) {
+      next(error);
+    }
   }
 
   buscar(req, res, next) {
@@ -17,33 +21,43 @@ class ProdutosController {
       const produto = buscarProdutoService.execute(id);
       res.send(produto);
       next();
-    } catch (err) {
-      next(err);
+    } catch (error) {
+      next(error);
     }
   }
 
-  cadastrar(req, res) {
-    const produto = cadastrarProdutoService.execute(req.body);
-    return res.status(201).send(produto);
-  }
-
-  editar(req, res) {
-    const { id } = req.params;
-    const dadosProduto = req.body;
-    const produto = { id, ...dadosProduto  };
-    const produtoEditado = editarProdutoService.execute(produto);
-    return res.send(produtoEditado);
-  }
-
-  excluir(req, res) {
-    const { id } = req.params;
-    const produto = excluirProdutoService.execute(id);
-
-    if (!produto) {
-      return res.status(404).send({ mensagem: 'Produto não encontrado' });
+  cadastrar(req, res, next) {
+    try {
+      const produto = cadastrarProdutoService.execute(req.body);
+      res.status(201).send(produto);
+      next();
+    } catch (error) {
+      next(error);
     }
+  }
 
-    return res.send(produto);
+  editar(req, res, next) {
+    try {
+      const { id } = req.params;
+      const dadosProduto = req.body;
+      const produto = { id, ...dadosProduto };
+      const produtoEditado = editarProdutoService.execute(produto);
+      res.send(produtoEditado);
+      next();
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  excluir(req, res, next) {
+    try {
+      const { id } = req.params;
+      const produto = excluirProdutoService.execute(id);
+      res.send(produto);
+      next();
+    } catch (error) {
+      next(error);
+    }
   }
 }
 
