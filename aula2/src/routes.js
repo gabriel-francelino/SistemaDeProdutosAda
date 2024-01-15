@@ -10,20 +10,7 @@ const produtos = [];
 routes.get('/produtos', produtosController.listar);
 routes.get('/produtos/:id', produtosController.buscar);
 routes.post('/produtos', produtosController.cadastrar);
-
-// Edição de produto
-routes.put('/produtos/:id', (req, res) => {
-  const { id } = req.params;
-  const produtoAtualizado = req.body;
-  const index = produtos.findIndex(item => item.id === id);
-
-  if (index === -1) {
-    return res.status(404).send({ mensagem: 'Produto não encontrado' });
-  } 
-
-  produtos[index] = { id, ...produtoAtualizado };
-  return res.send(produtos[index]);
-});
+routes.put('/produtos/:id', produtosController.atualizar);
 
 routes.delete('/produtos/:id', (req, res) => {
   const { id } = req.params;

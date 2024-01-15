@@ -29,6 +29,22 @@ class ProdutosRepository {
 
     return produto;
   }
+
+  buscarIndice(id) {
+    return this.#produtos.findIndex(item => item.id === id);
+  }
+
+  atualizar(produto) {
+    const indice = this.buscarIndice(produto.id);
+
+    if(indice == -1){
+      return null;
+    }
+
+    this.#produtos[indice] = produto;
+
+    return this.#produtos[indice];
+  }
 }
 
 const produtosRepository = new ProdutosRepository();
