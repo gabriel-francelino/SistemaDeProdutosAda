@@ -3,6 +3,7 @@ import { buscarProdutoService } from '../services/BuscarProdutoService.js';
 import { StatusCodes } from 'http-status-codes';
 import { cadastrarProdutoService } from '../services/CadastrarProdutoService.js';
 import { atualizarProdutoService } from '../services/AtualizarProdutoService.js';
+import { deletarProdutoService } from '../services/DeletarProdutoService.js';
 
 class ProdutosController {
   listar(req, res) {
@@ -37,11 +38,23 @@ class ProdutosController {
 
     const produtoAtualizado = atualizarProdutoService.execute(produto);
 
-    if(!produtoAtualizado) {
+    if (!produtoAtualizado) {
       return res.status(StatusCodes.BAD_REQUEST).send({ mensagem: "Produto não encontrado" });
     }
 
     return res.send(produtoAtualizado);
+  }
+
+  deletar(req, res) {
+    const { id } = req.params;
+
+    const produtoDeletado = deletarProdutoService.execute(id);
+
+    if (!produtoDeletado) {
+      return res.status(StatusCodes.BAD_REQUEST).send({ mensagem: "Produto não encontrado" });
+    }
+
+    return res.status(StatusCodes.NO_CONTENT).send();
   }
 }
 

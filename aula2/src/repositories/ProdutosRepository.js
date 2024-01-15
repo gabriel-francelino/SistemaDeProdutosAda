@@ -45,6 +45,19 @@ class ProdutosRepository {
 
     return this.#produtos[indice];
   }
+
+  deletar(id) {
+    const indice = this.buscarIndice(id);
+    
+    if(indice == -1){
+      return null;
+    }
+    
+    const produtoDeletado = this.#produtos[indice];
+    this.#produtos.splice(indice, 1);
+
+    return produtoDeletado;
+  }
 }
 
 const produtosRepository = new ProdutosRepository();
