@@ -18,7 +18,8 @@ class CadastrarCompraService {
         }  
 
         let itensCompra: ItemCompra[] = this.criarListaDeCompras(itens);
-        const compra = { nomeComprador, dataCompra: new Date(), itensCompra };
+        const compra: Compra = { nomeComprador, dataCompra: new Date(), itensCompra };
+        compra.valorTotal = this.calcularValorTotal(itensCompra);
         return comprasRepository.cadastrar(compra);
     }
 
@@ -37,6 +38,14 @@ class CadastrarCompraService {
             itensCompra.push(novoItem);
         }
         return itensCompra;
+    }
+
+    private calcularValorTotal(itens: ItemCompra[]): number{
+        let total = 0;
+        for(const {produto, quantidade} of itens){
+            total += (produto.preco * quantidade);
+        }
+        return total
     }
 }
 
