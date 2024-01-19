@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload de arquivos</title>
+</head>
+<body>
+  
+  <form action="/fotos" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <label for="arquivo">Escolha um arquivo:</label>
+      <input type="file" name="arquivo">
+      <button>Upload</button>
+    </fieldset>
+  </form>
+
+  <br />
+
+  <form action="/uploads" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <label for="arquivos">Escolha um arquivo:</label>
+      <input type="file" name="arquivos" multiple>
+      <button>Upload</button>
+    </fieldset>
+  </form>
+
+</body>
+</html>
