@@ -1,5 +1,5 @@
-import { Produto } from '../models/Produto';
-import { produtosRepository } from '../repositories/ProdutosRepository';
+import { Produto } from '../../models/Produto';
+import { produtosRepository } from '../../repositories/ProdutosRepository';
 
 class CadastrarProdutoService {
   execute(produto: Produto) {

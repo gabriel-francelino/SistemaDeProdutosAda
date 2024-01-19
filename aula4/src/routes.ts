@@ -20,6 +20,8 @@ routes.put('/produtos/:id', produtosController.editar);
 routes.delete('/produtos/:id', produtosController.excluir);
 
 routes.post('/compras', comprasController.cadastrar);
+routes.get('/compras', comprasController.listar);
+routes.get('/compras/:id', comprasController.buscar);
 
 routes.use(tempoDeRespostaMiddleware.executeAfter);
 routes.use(errorHandlerMiddleware.execute);

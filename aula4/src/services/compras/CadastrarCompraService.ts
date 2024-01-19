@@ -1,10 +1,10 @@
 import { StatusCodes } from "http-status-codes";
-import { CompraDTO } from "../dto/CompraDTO";
-import { AppError } from "../errors/AppError";
-import { Compra, ItemCompra } from "../models/Compra";
-import { Produto } from "../models/Produto";
-import { comprasRepository } from "../repositories/ComprasRepository";
-import { produtosRepository } from "../repositories/ProdutosRepository";
+import { CompraDTO } from "../../dto/CompraDTO";
+import { AppError } from "../../errors/AppError";
+import { Compra, ItemCompra } from "../../models/Compra";
+import { Produto } from "../../models/Produto";
+import { comprasRepository } from "../../repositories/ComprasRepository";
+import { produtosRepository } from "../../repositories/ProdutosRepository";
 
 class CadastrarCompraService {
     execute({ nomeComprador, itens }: CompraDTO): Compra {

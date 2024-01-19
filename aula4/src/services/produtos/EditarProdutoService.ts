@@ -1,8 +1,8 @@
 import { StatusCodes } from 'http-status-codes';
 
-import { produtosRepository } from '../repositories/ProdutosRepository';
-import { AppError } from '../errors/AppError';
-import { Produto } from '../models/Produto';
+import { produtosRepository } from '../../repositories/ProdutosRepository';
+import { AppError } from '../../errors/AppError';
+import { Produto } from '../../models/Produto';
 
 class EditarProdutoService {
   execute(produto: Produto) {

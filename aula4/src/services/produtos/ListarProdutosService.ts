@@ -1,4 +1,4 @@
-import { produtosRepository } from '../repositories/ProdutosRepository';
+import { produtosRepository } from '../../repositories/ProdutosRepository';
 
 class ListarProdutosService {
   execute() {

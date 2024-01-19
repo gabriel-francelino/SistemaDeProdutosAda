@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 
-import { produtosRepository } from '../repositories/ProdutosRepository';
-import { AppError } from '../errors/AppError';
+import { produtosRepository } from '../../repositories/ProdutosRepository';
+import { AppError } from '../../errors/AppError';
 
 class ExcluirProdutoService {
   execute(id: string) {

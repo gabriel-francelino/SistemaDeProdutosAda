@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 
-import { listarProdutosService } from '../services/ListarProdutosService';
-import { buscarProdutoService } from '../services/BuscarProdutoService';
-import { cadastrarProdutoService } from '../services/CadastrarProdutoService';
-import { editarProdutoService } from '../services/EditarProdutoService';
-import { excluirProdutoService } from '../services/ExcluirProdutoService';
+import { listarProdutosService } from '../services/produtos/ListarProdutosService';
+import { buscarProdutoService } from '../services/produtos/BuscarProdutoService';
+import { cadastrarProdutoService } from '../services/produtos/CadastrarProdutoService';
+import { editarProdutoService } from '../services/produtos/EditarProdutoService';
+import { excluirProdutoService } from '../services/produtos/ExcluirProdutoService';
 
 class ProdutosController {
   listar(req: Request, res: Response, next: NextFunction) {
