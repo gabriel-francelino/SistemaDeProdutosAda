@@ -9,5 +9,6 @@ export interface Compra {
     id?: string;
     nomeComprador: string;
     dataCompra: Date;
-    itensCompra?: ItemCompra[];   
+    itensCompra?: ItemCompra[];  
+    valorTotal?: number; 
 }
