@@ -71,12 +71,17 @@ Módulo de Programação Web com `Express.js` da formação Back-end da [Ada Tec
 
 ## Como executar
 
-1. Instalando dependências:
+1. Acesse o projeto da aula desejada:
+```bash
+cd aula5/
+```
+
+2. Instalando dependências:
 ```bash
 npm i 
 ```
 
-2. Executando o projeto:
+3. Executando o projeto:
 ```bash
 npm start
 ```
