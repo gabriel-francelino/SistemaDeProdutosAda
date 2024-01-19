@@ -6,7 +6,12 @@ import { produtosRepository } from "../repositories/ProdutosRepository";
 
 class CadastrarCompraService {
     execute({ nomeComprador, itens }: CompraDTO): Compra {
-        console.log(itens);
+        let itensCompra: ItemCompra[] = CadastrarCompraService.criarListaDeCompras(itens);
+        const compra = { nomeComprador, dataCompra: new Date(), itensCompra };
+        return comprasRepository.cadastrar(compra);
+    }
+
+    private static criarListaDeCompras(itens: any): ItemCompra[] {
         let itensCompra: ItemCompra[] = [];
         for (const item of itens) {
             const produto: Produto = produtosRepository.buscar(item.idProduto);
@@ -15,8 +20,7 @@ class CadastrarCompraService {
             console.log(novoItem);
             itensCompra.push(novoItem);
         }
-        const compra = { nomeComprador, dataCompra: new Date(), itensCompra };
-        return comprasRepository.cadastrar(compra);
+        return itensCompra;
     }
 }
 

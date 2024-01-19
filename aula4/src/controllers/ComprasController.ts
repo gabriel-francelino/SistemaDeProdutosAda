@@ -6,10 +6,14 @@ import { CompraDTO } from '../dto/CompraDTO';
 
 class ComprasController {
     cadastrar(req: Request, res: Response, next: NextFunction) {
-        const compraDTO: CompraDTO = req.body;
-        const novaCompra: Compra = cadastrarCompraService.execute(compraDTO);
-        res.status(StatusCodes.CREATED).send(novaCompra);
-        next();
+        try {
+            const compraDTO: CompraDTO = req.body;
+            const novaCompra: Compra = cadastrarCompraService.execute(compraDTO);
+            res.status(StatusCodes.CREATED).send(novaCompra);
+            next();
+        } catch (error) {
+            next(error);
+        }
     }
 }
 
