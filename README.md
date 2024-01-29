@@ -9,6 +9,9 @@ Módulo de Programação Web com `Express.js` da formação Back-end da [Ada Tec
 - [Aula 3](./aula3/): Middlewares e Tratamento de erros.
 - [Aula 4](./aula4/): Conversão de JavaScript para Typescript.
 - [Aula 5](./aula5/): Uploads de arquivos.
+- [Aula 6](./aula6/): Incluindo upload de arquivos no projeto.
+- [Aula 7](./aula7/): Introdução de autentificação com jwt.
+- [Aula 8](./aula8/): Integração com banco de dados MySQL.
 
 ## Endpoints
 
